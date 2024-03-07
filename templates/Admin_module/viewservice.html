@@ -1,0 +1,41 @@
+{% extends "Admin_module/admin_index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <style>
+        table tr th {
+            background-color: #fdf227!important;
+
+        }
+    </style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+
+<table class="table table-primary" style="background-color: #ffe82d">
+  <tr>
+    <th>SI.No</th>
+    <th>CATEGORY NAME</th>
+    <th>SERVICE NAME</th>
+    <th>AMOUNT</th>
+    <th></th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}&nbsp;</td>
+    <td>{{ i.CATEGORY.category_name}}&nbsp;</td>
+    <td>{{ i.service_name}}</td>
+    <td>{{ i.amount }}</td>
+    <td><a href="/delete_service/{{ i.id }}#aa" style="width: 110px" class="btn btn-primary" onclick="return confirm('Are you sure?')">Delete</a><br><br>
+     <a href="/edit_service/{{ i.id }}#aa"style="width: 110px" class="btn btn-primary">Edit</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "Admin_module/admin_index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <style>
+        table tr th {
+            background-color: #fdf227!important;
+
+        }
+    </style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-primary" style="background-color: #ffe82d">
+    <tr>
+      <th>SI.NO</th>
+      <th>DATE</th>
+      <th>AMOUNT</th>
+      <th>STATUS</th>
+      <th>SERVICE INFO.</th>
+      <th>CUSTOMER INFO.</th>
+      <th></th>
+
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date }} </td>
+      <td>{{ i.amount}}</td>
+      <td>{{ i.status }}</td>
+      <td>{{ i.SERVICE.CATEGORY.category_name }}
+{#          {{ i. }}#}
+      </td>
+      <td>{{ i.CUSTOMER.name}}</td>
+      <td><p><a href="/alct_staff/{{ i.id }}#aa" style="width:25PX" class="btn btn-primary">allocate_staff</a></p></td>
+        <td><p><a href="/view_payment/{{ i.id }}#aa" style="width: 110px" class="btn btn-primary">payment</a></p></td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "Admin_module/admin_index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/area_allocation_post">
+{% csrf_token %}
+  <table class="table table-primary" style="background-color: #ffe82d">
+    <tr>
+      <td width="81">Area Name</td>
+      <td width="41"><label for="select"></label>
+        <select name="select" class="form-control" id="select">
+            {% for i in data %}
+      <option value="{{ i.id }}">{{ i.cityname }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+      <td>Staff Name</td>
+      <td><label for="select2"></label>
+        <select name="select2" class="form-control" id="select2">
+            {%  for i in data1 %}
+       <option value="{{ i.id }}">{{ i.staffname }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Add" class="btn btn-primary w-50 p-3 border-0" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

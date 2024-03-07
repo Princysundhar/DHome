@@ -1,0 +1,54 @@
+{% extends "Admin_module/admin_index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/admin_edit_staff_post/{{ id }}">
+    {% csrf_token %}
+  <table class="table table-primary" style="background-color: #ffe82d">
+    <tr>
+      <td colspan="2" align="center">Staff Details</td>
+    </tr>
+    <tr>
+      <td width="105">Name</td>
+      <td width="155"><label for="textfield"></label>
+      <input type="text" name="textfield"class="form-control w-75" required id="textfield" value="{{ data.staffname }}" /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2"class="form-control w-75" required  id="textfield2" value="{{ data.staffpost }}"/></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3"class="form-control w-75" required id="textfield3" value="{{ data.staffplace }}"/></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4"class="form-control w-75" required id="textfield4" value="{{ data.staffpin }}" /></td>
+    </tr>
+    <tr>
+      <td>Mobile Number</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5"class="form-control w-75" required id="textfield5"value="{{ data.staffcontact_no }}" /></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+        <td><label for="textfield6"></label>
+      <input type="text" name="textfield6"class="form-control w-75" required id="textfield6"value="{{ data.staffemail }}" readonly/></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Add" class="btn btn-primary w-50 p-3 border-0"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "staff_module/staff_index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <style>
+        table tr th {
+            background-color: #fdf227!important;
+
+        }
+    </style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_staff_post">
+    {% csrf_token %}
+  <table class="table table-primary" style="background-color: #ffe82d">
+    <tr>
+      <th colspan="2" class="text-center">Staff Details</th>
+    </tr>
+    <tr>
+      <td width="105">Name</td>
+      <td width="155">{{ data.staffname }}</td>
+    </tr>
+    <tr>
+      <td>post</td>
+      <td>{{ data.staffpost }}</td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>{{ data.staffplace }}</td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>{{ data.staffpin }}</td>
+    </tr>
+    <tr>
+      <td>Mobile Number</td>
+      <td>{{ data.staffcontact_no }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{ data.staffemail }}</td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
